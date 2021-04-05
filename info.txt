@@ -1,0 +1,21 @@
+To Create a spring boot project. Visit Spring Initializer page and select Maven project and give the required input.
+To add Spring Security feature in our app add "Spring Security" dependency along with "Spring Web".
+
+After Adding Spring Security Dependency in Maven. When we start the application on port local host:port no.
+It will automatically show the login page and ask for credentials.
+The default user name is "user" and password is spring generated password provided in the logs "Using generated security password:...."
+
+H2 is an in-memory DB in Spring Boot. To use H2 in our SB project we can add it while creating the project in Spring initializer or add the dependency in 
+pom.xml file:
+	<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+	</dependency>
+	
+To enable H2 db we need to add cfg in application.properties file:
+	spring.h2.console.enabled = true
+	spring.datasource.platform = h2
+	spring.datasource.url = jdbc:h2:mem:demo
+	
+	http://localhost:8080/h2-console
