@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_03tii81" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.5.0">
+  <bpmn:process id="NotifyUserSubprocess" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Start Notify">
+      <bpmn:outgoing>Flow_1hna3c8</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:scriptTask id="Activity_1viufqe" name="Notify Loan Approval" scriptFormat="javascript">
+      <bpmn:incoming>Flow_1hna3c8</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vd4qmw</bpmn:outgoing>
+      <bpmn:script>print('Loan Approved')</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="Flow_1hna3c8" sourceRef="StartEvent_1" targetRef="Activity_1viufqe" />
+    <bpmn:eventBasedGateway id="Gateway_1pdbssr">
+      <bpmn:incoming>Flow_1vd4qmw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0nbvfqc</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:sequenceFlow id="Flow_1vd4qmw" sourceRef="Activity_1viufqe" targetRef="Gateway_1pdbssr" />
+    <bpmn:intermediateCatchEvent id="Event_1oeel0q" name="CallAfter1Min">
+      <bpmn:incoming>Flow_0nbvfqc</bpmn:incoming>
+      <bpmn:outgoing>Flow_0sgz7ox</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1sgac7u">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT1M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_0nbvfqc" sourceRef="Gateway_1pdbssr" targetRef="Event_1oeel0q" />
+    <bpmn:userTask id="Activity_107ua24" name="Confirm over phone" camunda:candidateGroups="CallOperator">
+      <bpmn:incoming>Flow_0sgz7ox</bpmn:incoming>
+      <bpmn:outgoing>Flow_1h8a7be</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0sgz7ox" sourceRef="Event_1oeel0q" targetRef="Activity_107ua24" />
+    <bpmn:endEvent id="Event_11l07cs" name="User Notified">
+      <bpmn:incoming>Flow_1h8a7be</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1h8a7be" sourceRef="Activity_107ua24" targetRef="Event_11l07cs" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="NotifyUserSubprocess">
+      <bpmndi:BPMNEdge id="Flow_1hna3c8_di" bpmnElement="Flow_1hna3c8">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vd4qmw_di" bpmnElement="Flow_1vd4qmw">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="445" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nbvfqc_di" bpmnElement="Flow_0nbvfqc">
+        <di:waypoint x="495" y="117" />
+        <di:waypoint x="562" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sgz7ox_di" bpmnElement="Flow_0sgz7ox">
+        <di:waypoint x="598" y="117" />
+        <di:waypoint x="650" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1h8a7be_di" bpmnElement="Flow_1h8a7be">
+        <di:waypoint x="750" y="117" />
+        <di:waypoint x="822" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="170" y="142" width="55" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1viufqe_di" bpmnElement="Activity_1viufqe">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1pdbssr_di" bpmnElement="Gateway_1pdbssr">
+        <dc:Bounds x="445" y="92" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1oeel0q_di" bpmnElement="Event_1oeel0q">
+        <dc:Bounds x="562" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="550" y="142" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_107ua24_di" bpmnElement="Activity_107ua24">
+        <dc:Bounds x="650" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_11l07cs_di" bpmnElement="Event_11l07cs">
+        <dc:Bounds x="822" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="808" y="142" width="64" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
