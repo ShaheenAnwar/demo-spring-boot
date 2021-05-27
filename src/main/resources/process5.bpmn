@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.5.0">
-  <bpmn:process id="demo-camunda-project-process" isExecutable="true">
+  <bpmn:process id="demo-camunda-project5" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Loan Request Received">
       <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
     </bpmn:startEvent>
@@ -61,7 +61,21 @@
     </bpmn:callActivity>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="demo-camunda-project-process">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="demo-camunda-project5">
+      <bpmndi:BPMNEdge id="Flow_07ixusr_di" bpmnElement="Flow_07ixusr">
+        <di:waypoint x="700" y="217" />
+        <di:waypoint x="820" y="217" />
+        <di:waypoint x="820" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vz24bv_di" bpmnElement="Flow_0vz24bv">
+        <di:waypoint x="555" y="217" />
+        <di:waypoint x="600" y="217" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_141m7t6_di" bpmnElement="Flow_141m7t6">
+        <di:waypoint x="530" y="192" />
+        <di:waypoint x="530" y="120" />
+        <di:waypoint x="795" y="120" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1hinen6_di" bpmnElement="Flow_1hinen6">
         <di:waypoint x="530" y="192" />
         <di:waypoint x="530" y="120" />
@@ -102,24 +116,22 @@
         <di:waypoint x="215" y="217" />
         <di:waypoint x="270" y="217" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_141m7t6_di" bpmnElement="Flow_141m7t6">
-        <di:waypoint x="530" y="192" />
-        <di:waypoint x="530" y="120" />
-        <di:waypoint x="795" y="120" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0vz24bv_di" bpmnElement="Flow_0vz24bv">
-        <di:waypoint x="555" y="217" />
-        <di:waypoint x="600" y="217" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_07ixusr_di" bpmnElement="Flow_07ixusr">
-        <di:waypoint x="700" y="217" />
-        <di:waypoint x="820" y="217" />
-        <di:waypoint x="820" y="145" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="199" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="163" y="242" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
+        <dc:Bounds x="952" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="936" y="145" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_14aeeya_di" bpmnElement="Event_14aeeya">
+        <dc:Bounds x="952" y="342" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="936" y="385" width="69" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_070r9b3_di" bpmnElement="VerifyLoan">
@@ -139,18 +151,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_13nbr94_di" bpmnElement="Gateway_0z88jf1">
         <dc:Bounds x="505" y="192" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_14aeeya_di" bpmnElement="Event_14aeeya">
-        <dc:Bounds x="952" y="342" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="936" y="385" width="69" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
-        <dc:Bounds x="952" y="102" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="936" y="145" width="69" height="27" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0utkfh8_di" bpmnElement="Gateway_0ypgkxz">
         <dc:Bounds x="795" y="95" width="50" height="50" />
